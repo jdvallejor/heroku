@@ -41,6 +41,17 @@ public class Topic {
         super();
     }
 
+    private Topic(String name, String description, Status status, LocalDateTime createdAt) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
+        this.createdAt = createdAt;
+    }
+
+    public Topic(String name, String description) {
+        this(name, description, Status.toOpen, LocalDateTime.now());
+    }
+
     public String getId() {
         return id;
     }
