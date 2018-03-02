@@ -23,7 +23,7 @@ public class Collaborator {
 
     private List<Detail> topicsToLearn;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-M-d h:m:s")
     private LocalDateTime createdAt;
 
     public Collaborator() {
