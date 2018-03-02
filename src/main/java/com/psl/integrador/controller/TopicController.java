@@ -20,17 +20,20 @@ public class TopicController {
         this.topicService = topicService;
     }
 
+    @CrossOrigin
     @PostMapping
     public Topic createTopic(@RequestBody @Valid Topic topic) {
         return topicService.add(topic);
     }
 
+    @CrossOrigin
     @PutMapping
     public Topic updateTopic(@RequestBody @Valid Topic topic) throws EntityNotFoundException {
         return topicService.update(topic);
     }
 
-    @RequestMapping("/findByStatus")
+    @CrossOrigin
+    @GetMapping("/findByStatus")
     public List<Topic> getTopicsByStatus(@RequestParam("status") int status) {
         return topicService.getTopicsByStatus(status);
     }

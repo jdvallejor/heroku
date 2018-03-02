@@ -21,6 +21,9 @@ public class MongoDBConfig {
     CommandLineRunner commandLineRunner(TopicRepository topicRepository, CollaboratorRepository collaboratorRepository) {
         return strings -> {
 
+            collaboratorRepository.deleteAll();
+            topicRepository.deleteAll();
+
             List<Topic> listTopics = new ArrayList<>();
             Topic t1 = new Topic("Java", "Java test");
             Topic t2 = new Topic("C#", "C# Test");

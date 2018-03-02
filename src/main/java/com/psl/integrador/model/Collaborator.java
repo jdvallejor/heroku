@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection = "Collaborator")
+@Document(collection = "collaborators")
 public class Collaborator {
 
     @Id
