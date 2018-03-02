@@ -27,7 +27,7 @@ public class TopicController {
     }
 
     @CrossOrigin
-    @PutMapping
+    @RequestMapping(method = RequestMethod.PUT)
     public Topic updateTopic(@RequestBody @Valid Topic topic) throws EntityNotFoundException {
         return topicService.update(topic);
     }
