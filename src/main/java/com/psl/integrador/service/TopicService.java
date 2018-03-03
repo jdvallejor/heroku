@@ -11,7 +11,7 @@ public interface TopicService {
 
     List<Topic> getTopicsByStatus(int status);
 
-    Topic add(Topic topic);
+    Topic add(Topic t);
 
     Topic update(Topic topic) throws EntityNotFoundException;
 

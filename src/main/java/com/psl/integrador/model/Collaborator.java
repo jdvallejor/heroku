@@ -1,16 +1,14 @@
 package com.psl.integrador.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.psl.integrador.model.enums.Expertise;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection = "collaborators")
+@Document(collection = "Collaborator")
 public class Collaborator {
 
     @Id
@@ -23,7 +21,7 @@ public class Collaborator {
 
     private List<Detail> topicsToLearn;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-M-d h:m:s")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime createdAt;
 
     public Collaborator() {
@@ -68,19 +66,5 @@ public class Collaborator {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public boolean addTopicToTeach(Topic topic, Expertise expertise) {
-        if (topicsToTeach == null)
-            topicsToTeach = new ArrayList<>();
-
-        return topicsToTeach.add(new Detail(topic, expertise));
-    }
-
-    public boolean addTopicToLearn(Topic topic, Expertise expertise) {
-        if (topicsToLearn == null)
-            topicsToLearn = new ArrayList<>();
-
-        return topicsToLearn.add(new Detail(topic, expertise));
     }
 }

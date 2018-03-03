@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@Document(collection = "topics")
+@Document(collection = "Topic")
 public class Topic {
 
     @Id
@@ -28,28 +28,17 @@ public class Topic {
 
     private int students;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-M-d h:m:s")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime createdAt;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-M-d h:m:s")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime openedAt;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-M-d h:m:s")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime closedAt;
 
     public Topic() {
         super();
-    }
-
-    private Topic(String name, String description, Status status, LocalDateTime createdAt) {
-        this.name = name;
-        this.description = description;
-        this.status = status;
-        this.createdAt = createdAt;
-    }
-
-    public Topic(String name, String description) {
-        this(name, description, Status.toOpen, LocalDateTime.now());
     }
 
     public String getId() {
